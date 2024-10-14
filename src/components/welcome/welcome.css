@@ -1,0 +1,19 @@
+.liveChatContainer {
+    /* margin: 0 auto; */
+    border-bottom: 5px solid #09DAAD;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex: .7;
+}
+
+.liveChatContainer img {
+    width: 40%;
+}
+
+.liveChatContainer p {
+    color: rgba(0, 0, 0, 0.507);
+}

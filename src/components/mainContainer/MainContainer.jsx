@@ -1,13 +1,38 @@
 import Sidebar from '../sidebar/Sidebar'
-import Workarea from '../workarea/Workarea'
-
 import './mainContainer.css'
+import Chatarea from '../chatarea/Chatarea'
+import { useState } from 'react'
+import Welcoome from '../welcome/Welcoome'
 
 const MainContainer = () => {
+    const [conversations, setConversations] = useState([
+        {
+            id: 1,
+            name: "Demo User-1",
+            lastMessage: "Hello! This is last message-1",
+            timeStamp: "today",
+            unread: true
+        },
+        {
+            id: 2,
+            name: "Demo User-2",
+            lastMessage: "Hello! This is last message-2",
+            timeStamp: "today",
+            unread: true
+        },
+        {
+            id: 3,
+            name: "Demo User-3",
+            lastMessage: "Hello! This is last message-3",
+            timeStamp: "today",
+            unread: true
+        }
+    ])
     return (
         <div className='main-container' >
             <Sidebar />
-            <Workarea />
+            <Chatarea key={conversations.id} props={conversations[0]} />
+            {/* <Welcoome /> */}
         </div>
     )
 }

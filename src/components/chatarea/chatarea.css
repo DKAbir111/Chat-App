@@ -1,0 +1,117 @@
+.chatarea-container {
+    display: flex;
+    flex-direction: column;
+    flex: .7;
+}
+
+.message-container {
+    padding: 5px 15px;
+    margin: 0px 10px;
+    background-color: white;
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+
+}
+
+
+.user-info {
+    display: flex;
+    gap: 20px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.message-icon {
+    font-size: 2rem;
+    background-color: #f3f4f8;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.29);
+}
+
+.message-title {
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.646);
+}
+
+.message-timeStamp {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.54);
+    align-self: flex-end;
+    text-align: right;
+}
+
+.text-input {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    margin: 10px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.text-input input {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.otherMessageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.othersMessage {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.othersMessage-content {
+    background-color: #f3f4f8;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selfMessage {
+    background-color: #09daad9b;
+    border-radius: 15px;
+    padding: 20px;
+    justify-self: right;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.selfMessageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}

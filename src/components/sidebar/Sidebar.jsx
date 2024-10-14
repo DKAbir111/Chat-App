@@ -67,10 +67,11 @@ const Sidebar = () => {
             </div>
             <div className='conversation'>
                 {
-                    conversations.map((conversation) => {
-                        return <ConversationItems key={conversation.id} props={conversation} />
-                    })
-
+                    conversations.map((conversation) => (
+                        <div key={conversation.id}>
+                            <ConversationItems props={conversation} />
+                        </div>
+                    ))
                 }
             </div>
         </div>
