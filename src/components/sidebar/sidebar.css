@@ -1,4 +1,76 @@
 .sidebar-container {
     width: 30%;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.search-bar input {
+    outline-width: 0;
+    border: none;
+    font-size: 1.25rem;
+    width: 100%;
+}
+
+.conversation {
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    flex: 1;
+}
+
+.conversation-container {
+    display: grid;
+    grid-template-columns: 32px auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    padding: 15px;
+    margin: 5px;
+    background-color: #f3f4f8;
+    border-radius: 15px;
+}
+
+.con-icon {
+    font-size: 2rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.29);
+}
+
+.con-title {
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.646);
+}
+
+.con-timeStamp {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.54);
+    align-self: flex-end;
+}
+
+.con-lastMessage {
+    font-size: 0.875rem;
+    margin-top: 5px;
 }
