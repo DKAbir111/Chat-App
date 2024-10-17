@@ -8,10 +8,13 @@
     align-items: center;
     gap: 5px;
     flex: .7;
+
 }
 
 .liveChatContainer img {
     width: 40%;
+    padding: 10px;
+
 }
 
 .liveChatContainer p {

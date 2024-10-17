@@ -1,0 +1,33 @@
+/* Login.css */
+.container {
+    background-color: #f3f4f8;
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+
+.leftSide {
+    flex: 1;
+    background-image: url('../../../resources/live-chat-bg.png');
+    background-repeat: no-repeat;
+
+    background-position: center;
+    padding: 32px;
+
+}
+
+.rightSide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    background-color: white;
+    border-radius: 0px 20px 20px 0px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+}

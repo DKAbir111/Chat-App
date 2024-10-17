@@ -3,6 +3,8 @@ import './mainContainer.css'
 import Chatarea from '../chatarea/Chatarea'
 import { useState } from 'react'
 import Welcoome from '../welcome/Welcoome'
+import Creategroup from '../createGroup/Creategroup'
+import UserGroup from '../userGroup/UserGroup'
 
 const MainContainer = () => {
     const [conversations, setConversations] = useState([
@@ -31,8 +33,10 @@ const MainContainer = () => {
     return (
         <div className='main-container' >
             <Sidebar />
-            <Chatarea key={conversations.id} props={conversations[0]} />
+            {/* <Chatarea key={conversations.id} props={conversations[0]} /> */}
             {/* <Welcoome /> */}
+            {/* <Creategroup /> */}
+            <UserGroup />
         </div>
     )
 }

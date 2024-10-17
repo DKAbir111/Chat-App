@@ -1,19 +1,28 @@
-.sidebar-container {
+.list-container {
+    flex: 0.7;
     display: flex;
     flex-direction: column;
-    flex: .3;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 15px; */
 }
 
-.header {
+.header-users {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     padding: 15px 10px;
     background-color: white;
     border-radius: 15px;
     margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    gap: 5px;
+}
+
+.header-users img {
+    width: 30px;
+
+}
+
+.header-title {
+    font-weight: bolder;
+    color: rgba(0, 0, 0, 0.646);
 }
 
 .search-bar {
@@ -34,28 +43,29 @@
 
 }
 
-.conversation {
+.user-list {
+    overflow: scroll;
+    flex: 0.7;
+    flex: 1;
+    scrollbar-width: none;
+}
+
+.user-container {
     padding: 5px 10px;
     background-color: white;
-    border-radius: 20px;
-    margin: 10px;
-    flex: 1;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
-.conversation-container {
-    display: grid;
-    grid-template-columns: 50px auto auto;
-    grid-template-rows: auto auto;
-    column-gap: 10px;
-    padding: 15px;
-    margin: 15px 5px;
-    /* background-color: #f3f4f8; */
     border-radius: 15px;
+    margin: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: flex;
+    padding: 15px 10px;
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+
 }
 
-.con-icon {
+
+.icon-user {
     font-size: 2rem;
     background-color: white;
     height: 40px;
@@ -67,21 +77,4 @@
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.29);
     background-color: #f3f4f8;
-}
-
-.con-title {
-    font-weight: bolder;
-    color: rgba(0, 0, 0, 0.646);
-}
-
-.con-timeStamp {
-    font-size: 0.75rem;
-    color: rgba(0, 0, 0, 0.54);
-    align-self: flex-end;
-    text-align: right;
-}
-
-.con-lastMessage {
-    font-size: 0.875rem;
-    margin-top: 5px;
 }
