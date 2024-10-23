@@ -1,38 +1,27 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
 
 const userModel = mongoose.Schema(
   {
-    name: {
+    name: { // Changed from firstName to name
       type: String,
-      requried: true,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
     },
     email: {
       type: String,
-      requried: true,
-    },
-    password: {
-      type: String,
-      requried: true,
+      required: true,
+      unique: true, // To ensure no duplicate emails
     },
   },
   {
-    timeStamp: true,
+    timestamps: true, // Enabled timestamp tracking
   }
 );
 
-userModel.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
-};
-
-userModel.pre("save", async function (next) {
-  if (!this.isModified) {
-    next();
-  }
-
-  const salt = await bcrypt.genSalt(10);
-  this.password = await bcrypt.hash(this.password, salt);
-});
+// No need for password methods or password hashing middleware
 
 const User = mongoose.model("User", userModel);
 module.exports = User;
