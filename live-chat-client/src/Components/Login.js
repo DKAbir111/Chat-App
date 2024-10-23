@@ -15,9 +15,8 @@ import Toaster from "./Toaster";
 
 function Login() {
   const [showLogin, setShowLogin] = useState(false);
-  const [data, setData] = useState({ name: "", email: "", password: "" });
+  const [data, setData] = useState({ name: "", lastName: "", email: "" });
   const [loading, setLoading] = useState(false);
-
   const [logInStatus, setLogInStatus] = useState("");
   const [signInStatus, setSignInStatus] = useState("");
 
@@ -33,7 +32,7 @@ function Login() {
       const config = { headers: { "Content-type": "application/json" } };
       const response = await axios.post(
         "http://localhost:8080/user/login/",
-        data,
+        { email: data.email }, // Only use email for login
         config
       );
       setLogInStatus({ msg: "Success", key: Math.random() });
@@ -42,7 +41,7 @@ function Login() {
       navigate("/app/welcome");
     } catch (error) {
       setLogInStatus({
-        msg: "Invalid User name or Password",
+        msg: "Invalid Email",
         key: Math.random(),
       });
       setLoading(false);
@@ -50,7 +49,8 @@ function Login() {
   };
 
   const signUpHandler = async () => {
-    if (!data.name || !data.email || !data.password) {
+    const { name, lastName, email } = data;
+    if (!name || !lastName || !email) {
       setSignInStatus({ msg: "All fields are required", key: Math.random() });
       return;
     }
@@ -60,7 +60,7 @@ function Login() {
       const config = { headers: { "Content-type": "application/json" } };
       const response = await axios.post(
         "http://localhost:8080/user/register/",
-        data,
+        { name, lastName, email }, // Use name, lastName, and email for registration
         config
       );
       setSignInStatus({ msg: "Success", key: Math.random() });
@@ -68,15 +68,9 @@ function Login() {
       localStorage.setItem("userData", JSON.stringify(response));
       setLoading(false);
     } catch (error) {
-      // Check for specific errors like email or username already taken
       if (error.response && error.response.status === 405) {
         setSignInStatus({
           msg: "User with this email ID already exists",
-          key: Math.random(),
-        });
-      } else if (error.response && error.response.status === 406) {
-        setSignInStatus({
-          msg: "User name already taken, please choose another one",
           key: Math.random(),
         });
       } else {
@@ -163,23 +157,10 @@ function Login() {
                   fullWidth
                   margin="normal"
                   onChange={changeHandler}
-                  label="Enter User Name"
+                  label="Enter Email Address"
                   variant="outlined"
                   color="primary"
-                  name="name"
-                  onKeyDown={(event) => {
-                    if (event.code === "Enter") loginHandler();
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  margin="normal"
-                  onChange={changeHandler}
-                  label="Password"
-                  type="password"
-                  variant="outlined"
-                  color="primary"
-                  name="password"
+                  name="email"
                   onKeyDown={(event) => {
                     if (event.code === "Enter") loginHandler();
                   }}
@@ -216,10 +197,22 @@ function Login() {
                   fullWidth
                   margin="normal"
                   onChange={changeHandler}
-                  label="Enter User Name"
+                  label="Name"
                   variant="outlined"
                   color="primary"
                   name="name"
+                  onKeyDown={(event) => {
+                    if (event.code === "Enter") signUpHandler();
+                  }}
+                />
+                <TextField
+                  fullWidth
+                  margin="normal"
+                  onChange={changeHandler}
+                  label="Last Name"
+                  variant="outlined"
+                  color="primary"
+                  name="lastName"
                   onKeyDown={(event) => {
                     if (event.code === "Enter") signUpHandler();
                   }}
@@ -232,19 +225,6 @@ function Login() {
                   variant="outlined"
                   color="primary"
                   name="email"
-                  onKeyDown={(event) => {
-                    if (event.code === "Enter") signUpHandler();
-                  }}
-                />
-                <TextField
-                  fullWidth
-                  margin="normal"
-                  onChange={changeHandler}
-                  label="Password"
-                  type="password"
-                  variant="outlined"
-                  color="primary"
-                  name="password"
                   onKeyDown={(event) => {
                     if (event.code === "Enter") signUpHandler();
                   }}
