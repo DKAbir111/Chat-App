@@ -76,4 +76,9 @@ io.on("connection", (socket) => {
       }
     });
   });
+
+  // Handle chat deletion
+  socket.on("delete chat", (chatId) => {
+    socket.to(chatId).emit("chatDeleted", chatId);
+  });
 });

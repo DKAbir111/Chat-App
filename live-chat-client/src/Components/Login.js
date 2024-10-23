@@ -197,7 +197,7 @@ function Login() {
                   fullWidth
                   margin="normal"
                   onChange={changeHandler}
-                  label="Name"
+                  label="First Name"
                   variant="outlined"
                   color="primary"
                   name="name"
@@ -221,7 +221,7 @@ function Login() {
                   fullWidth
                   margin="normal"
                   onChange={changeHandler}
-                  label="Enter Email Address"
+                  label="Email Address"
                   variant="outlined"
                   color="primary"
                   name="email"
